@@ -1,0 +1,43 @@
+/* 
+    Document   : Layout
+    Created on : 26 Sep, 2014, 12:31:11 PM
+    Author     : Cj
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#Header{
+
+}
+            
+#Footer{
+    background-image:  url('../dbms/Images/bg.png');
+    background-repeat: repeat;
+    background-color:#888888;
+    opacity: 0.9;
+    height: 60px;
+    color: white;
+}
+
+#Left{
+    position: absolute;
+    
+}
+
+#Right{
+    
+}
+
+a:hover{
+    text-decoration: none !important;
+}
+
+#mynav{
+    -webkit-box-shadow: 2px 2px 15px #1e54c0;
+    -moz-box-shadow: 2px 2px 15px #1e54c0;
+    box-shadow: 2px 2px 15px #1e54c0;
+}

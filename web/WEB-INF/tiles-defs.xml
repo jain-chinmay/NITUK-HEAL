@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+
+    <definition name="main" path="/Pages/Layout.jsp">
+        <put name="Header" value="/Pages/Header.jsp" />
+        <put name="Left_Sidebar" value="/Pages/Left_Sidebar.jsp" />
+        <put name="Right_Sidebar" value="/Pages/Right_Sidebar.jsp" />
+        <put name="Footer" value="/Pages/Footer.jsp" />
+        <put name="Body"   value="/Pages/Admin.jsp" />
+    </definition>
+    
+   
+    <definition name="Admin" extends="main">
+        <put name="Body" value="/Pages/Admin.jsp"/>
+    </definition>
+    
+    <definition name="RegSuc" extends="main">
+        <put name="Body" value="/Pages/AdminSuccess.jsp"/>
+    </definition>
+    
+    <definition name="ChangePassP" extends="main">
+        <put name="Body" value="/Pages/ChangePass.jsp"/>
+    </definition>
+    
+    <definition name="Edit" extends="main">
+        <put name="Body" value="/Pages/Edit.jsp"/>
+    </definition>
+    
+    <definition name="Register" extends="main">
+        <put name="Body" value="/Pages/Register.jsp"/>
+    </definition>
+    
+    <definition name="Delete" extends="main">
+        <put name="Body" value="/Pages/Delete.jsp"/>
+    </definition>
+    
+    <definition name="Update" extends="main">
+        <put name="Body" value="/Pages/Update.jsp"/>
+    </definition>
+    
+    <definition name="Basic_student" extends="main">
+        <put name="Body" value="/Pages/Basic_Student.jsp"/>
+    </definition>
+    
+    <definition name="Select_Year" extends="main">
+        <put name="Body" value="/Pages/Medical_Examination.jsp"/>
+    </definition>
+    
+    <definition name="List_Person" extends="main">
+        <put name="Body" value="/Pages/List_Person.jsp"/>
+    </definition>
+       
+    <definition name="Result_Medical" extends="main">
+        <put name="Body" value="/Pages/Search_Medical.jsp"/>
+    </definition>
+    
+    <definition name="Fail" extends="main">
+        <put name="Body" value="/Pages/Fail.jsp"/>
+    </definition>
+    
+    <definition name="Family" extends="main">
+        <put name="Body" value="/Pages/Family.jsp"/>
+    </definition>
+    
+    <definition name="Staff" extends="main">
+        <put name="Body" value="/Pages/Staff.jsp"/>
+    </definition>
+    
+    <definition name="Student" extends="main">
+        <put name="Body" value="/Pages/Student.jsp"/>
+    </definition>
+    
+    <definition name="Historyn" extends="main">
+        <put name="Body" value="/Pages/History.jsp"/>
+    </definition>
+    
+    <definition name="HealthProfile" extends="main">
+        <put name="Body" value="/Pages/HealthProfile.jsp"/>
+    </definition>
+    
+    <definition name="Basic_staff" extends="main">
+        <put name="Body" value="/Pages/Basic_Staff.jsp"/>
+    </definition>
+    
+    <definition name="AboutUs" extends="main">
+        <put name="Body" value="/Pages/AboutUs.jsp"/>
+    </definition>
+    
+    <definition name="Med_History" extends="main">
+        <put name="Body" value="/Pages/Medical_History.jsp"/>
+    </definition>
+    
+     <definition name="Prescriptt" extends="main">
+        <put name="Body" value="/Pages/Prescription.jsp"/>
+    </definition>
+    
+    <definition name="Developer" extends="main">
+        <put name="Body" value="/Pages/Developers.jsp"/>
+    </definition>
+   
+    <definition name="Terms" extends="main">
+        <put name="Body" value="/Pages/Terms.jsp"/>
+    </definition>
+    
+</tiles-definitions>

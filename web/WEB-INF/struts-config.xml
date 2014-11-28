@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="ForgetBean" type="Beans.ForgetBean"/>
+        <form-bean name="RegisterAdminBean" type="Beans.RegisterAdminBean"/>
+        <form-bean name="ChangePassBean" type="Beans.ChangePassBean"/>
+        <form-bean name="LoginBean" type="Beans.LoginBean"/>
+        <form-bean name="GetPIDBean" type="Beans.GetPIDBean"/>
+        <form-bean name="DeleteBean" type="Beans.DeleteBean"/>
+        <form-bean name="EditBean" type="Beans.EditBean"/>
+        <form-bean name="AdminBean" type="Beans.AdminBean"/>
+        <form-bean name="HistoryBean" type="Beans.HistoryBean"/>
+        <form-bean name="HealthBean" type="Beans.HealthBean"/>
+        <form-bean name="FamilyBean" type="Beans.FamilyBean"/>
+        <form-bean name="StaffBean" type="Beans.StaffBean"/>
+        <form-bean name="StudentBean" type="Beans.StudentBean"/>
+        <form-bean name="UpdateBean" type="Beans.UpdateBean"/>
+        <form-bean name="RegisterBean" type="Beans.RegisterBean"/>
+    
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        
+       <action path="/chPass"  forward="ChangePassP"/>
+       <action path="/home"  forward="Admin"/>
+       <action path="/aboutus"  forward="AboutUs"/>
+       <action path="/developers"  forward="Developer"/>
+       <action path="/terms"  forward="Terms"/>
+              
+        <action input="/Pages/Login.jsp" name="LoginBean" path="/login" scope="session" type="Actions.LoginAction">
+            <forward name="success" path="Admin"/>
+            <forward name="fail" path="/Pages/Login.jsp"/>
+            <forward name="forget"  path="/Pages/ForgetPass.jsp"/>
+        </action>
+
+        <action input="/Pages/RegisterAdmin.jsp" name="RegisterAdminBean" path="/registeradmin" scope="session" type="Actions.RegisterAdminAction">
+            <forward name="success" path="RegSuc"/>
+            <forward name="fail" path="/Pages/RegisterAdmin.jsp"/>
+        </action>
+
+        <action path="/changePassPage" type="Actions.GoChangePassAction">
+            <forward name="success" path="Admin"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action input="/Pages/ChangePass.jsp" name="ChangePassBean" path="/getNewPass" scope="session" type="Actions.ChangePassAction">
+            <forward name="success" path="Admin"/>
+            <forward name="fail" path="ChangePassP"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+
+        <action input="/Pages/Register.jsp" name="RegisterBean" path="/register" scope="session" type="Actions.RegisterAction">
+            <forward name="admin" path="Admin"/>
+            <forward name="delete" path="Delete"/>
+            <forward name="edit" path="Edit"/>
+            <forward name="success" path="Update"/>
+            <forward name="fail" path="Register"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+       
+        <action input="/Pages/Update.jsp" name="UpdateBean" path="/update" scope="session" type="Actions.UpdateAction">
+            <forward name="edit_bdetails" path="/edit_bdetails.do"/>
+            <forward name="edit_fbackground" path="Family"/>
+            <forward name="edit_hprofile" path="HealthProfile"/>
+            <forward name="edit_history" path="Historyn"/>
+            <forward name="success" path="Update"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+       
+        <action path="/edit_bdetails" type="Actions.Check_Person">
+            <forward name="student" path="Student"/>
+            <forward name="staff" path="Staff"/>
+        </action>
+       
+        <action input="/Pages/Student.jsp" name="StudentBean" path="/student" scope="session" type="Actions.StudentAction">
+            <forward name="up_presc" path="Update"/>
+            <forward name="edit_fbackground" path="Family"/>
+            <forward name="edit_hprofile" path="HealthProfile"/>
+            <forward name="edit_history" path="Historyn"/>
+            <forward name="success" path="Update"/>
+            <forward name="fail" path="Student"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action input="/Pages/Staff.jsp" name="StaffBean" path="/staff" scope="session" type="Actions.StaffAction">
+            <forward name="up_presc" path="Update"/>
+            <forward name="edit_fbackground" path="Family"/>
+            <forward name="edit_hprofile" path="HealthProfile"/>
+            <forward name="edit_history" path="Historyn"/>
+            <forward name="success" path="Update"/>
+            <forward name="fail" path="Staff"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action input="/Pages/Family.jsp" name="FamilyBean" path="/family" scope="session" type="Actions.FamilyAction">
+            <forward name="edit_bdetails" path="/edit_bdetails.do"/>
+            <forward name="up_presc" path="Update"/>
+            <forward name="edit_hprofile" path="HealthProfile"/>
+            <forward name="edit_history" path="Historyn"/>
+            <forward name="success" path="Update"/>
+            <forward name="fail" path="Family"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action input="/Pages/HealthProfile.jsp" name="HealthBean" path="/health" scope="session" type="Actions.HealthAction">
+            <forward name="edit_bdetails" path="/edit_bdetails.do"/>
+            <forward name="edit_fbackground" path="Family"/>
+            <forward name="up_presc" path="Update"/>
+            <forward name="edit_history" path="Historyn"/>
+            <forward name="success" path="Update"/>
+            <forward name="fail" path="HealthProfile"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action input="/Pages/History.jsp" name="HistoryBean" path="/history" scope="session" type="Actions.HistoryAction">
+            <forward name="edit_bdetails" path="/edit_bdetails.do"/>
+            <forward name="edit_fbackground" path="Family"/>
+            <forward name="edit_hprofile" path="HealthProfile"/>
+            <forward name="up_presc" path="Update"/>
+            <forward name="success" path="Update"/>
+            <forward name="fail" path="History"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action input="/Pages/Admin.jsp" name="AdminBean" path="/admin" scope="session" type="Actions.AdminAction">
+            <forward name="edit" path="Edit"/>
+            <forward name="add" path="Register"/>
+            <forward name="delete" path="Delete"/>
+            <forward name="list_person"  path="List_Person"/>
+            <forward name="person"  path="/person.do"/>
+            <forward name="result_medical" path="Result_Medical"/>
+            <forward name="fail" path="Admin"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+     
+        <action input="/Pages/Edit.jsp" name="EditBean" path="/edit" scope="session" type="Actions.EditAction">
+            <forward name="search" path="Admin"/>
+            <forward name="add" path="Register"/>
+            <forward name="delete" path="Delete"/>
+            <forward name="success" path="Update"/>
+            <forward name="fail" path="Edit"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action input="/Pages/Delete.jsp" name="DeleteBean" path="/delete" scope="session" type="Actions.DeleteAction">
+            <forward name="search" path="Admin"/>
+            <forward name="add" path="Register"/>
+            <forward name="edit" path="Edit"/>
+            <forward name="success" path="Delete"/>
+            <forward name="fail" path="Delete"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+       
+        <action path="/Select_Year" type="Actions.Select_year">
+            <forward name="success" path="Select_Year"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action path="/person" type="Actions.PersonAction">
+            <forward name="basic_student"  path="Basic_student"/>
+            <forward name="basic_staff"  path="Basic_staff"/>
+            <forward name="fail"  path="Admin"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+       </action>
+        
+        <action input="/Pages/Search_Medical.jsp" name="GetPIDBean" path="/getPID" scope="session" type="Actions.GetPIDAction">
+            <forward name="success" path="/person.do"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action path="/med_history" type="Actions.Medical_HistoryAction">
+            <forward name="success" path="Med_History"/>
+            <forward name="fail" path="Admin"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action path="/prescript" type="Actions.PrescriptAction">
+            <forward name="success" path="Prescriptt"/>
+            <forward name="fail" path="Prescriptt"/>
+            <forward name="notlogged" path="/Pages/Login.jsp"/>
+        </action>
+        
+        <action path="/logout" type="Actions.LogoutAction">
+            <forward name="success" path="/Pages/Login.jsp"/>
+        </action>
+        <action input="/Pages/ForgetPass.jsp" name="ForgetBean" path="/forget" scope="session" type="Actions.ForgetPassAction">
+            <forward name="success"  path="/Pages/Login.jsp"/>
+            <forward name="fail"  path="/Pages/Login.jsp"/>
+        </action>
+        
+        
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

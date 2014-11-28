@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+    </global>
+
+    <formset>
+        <form name="LoginBean">
+            <field
+                property="admin_id"
+                depends="required">
+                    <arg key="Username" resource="false"/>
+            </field>
+            
+        </form>
+        
+        <form name="RegisterAdminBean">
+            <field
+                property="fname"
+                depends="required">
+                    <arg key="First name" resource="false"/>
+            </field>
+            
+            <field
+                property="sec_ques"
+                depends="required">
+                    <arg key="Security Question" resource="false"/>
+            </field>
+            <field
+                property="sec_ans"
+                depends="required">
+                    <arg key="Security Question" resource="false"/>
+            </field>
+        </form>
+        
+        <form name="ChangePassBean">
+            <field
+                property="oldpass"
+                depends="required">
+                    <arg key="Old Password" resource="false"/>
+            </field>
+            <field
+                property="newpass"
+                depends="required">
+                    <arg key="New Passsword" resource="false"/>
+            </field>
+        </form>
+
+        <form name="StudentBean">
+            <field
+                property="dept"
+                depends="required">
+                    <arg key="Department" resource="false"/>
+            </field>
+            <field
+                property="year"
+                depends="required">
+                    <arg key="Year" resource="false"/>
+            </field>
+         
+        </form>
+        
+        <form name="StaffBean">
+            <field
+                property="dept"
+                depends="required">
+                    <arg key="Department" resource="false"/>
+            </field>
+            <field
+                property="year"
+                depends="required">
+                    <arg key="Year" resource="false"/>
+            </field>
+        </form>
+        
+        <form name="FamilyBean">
+            <field
+                property="f_name"
+                depends="mask">
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[a-z A-Z]*$</var-value>
+                    </var>
+                    <arg key="Father Name" resource="false"/>
+            </field>
+            <field
+                property="m_name"
+                depends="mask">
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[a-z A-Z]*$</var-value>
+                    </var>
+                    <arg key="Mother Name" resource="false"/>
+            </field>
+            <field
+                property="f_contact"
+                depends="mask">
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[7-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$</var-value>
+                    </var>
+                    <arg key="Family Contact " resource="false"/>
+            </field>
+        </form>
+        
+        <form name="HealthBean">
+            <field
+                property="v_right"
+                depends="mask">
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-60]$</var-value>
+                    </var>
+                    <arg key="Right Vision" resource="false"/>
+            </field>
+            <field
+                property="v_left"
+                depends="mask">
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-60]$</var-value>
+                    </var>
+                    <arg key="Left Vision" resource="false"/>
+            </field>
+            <field
+                property="chest"
+                depends="mask">
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[2-7][0-9]$</var-value>
+                    </var>
+                    <arg key="Chest size" resource="false"/>
+            </field>
+            <field
+                property="abdomen"
+                depends="mask">
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[1-7]$</var-value>
+                    </var>
+                    <arg key="Abdomen size" resource="false"/>
+            </field>
+            <field
+                property="hepb1"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="Hepatis B : Date " resource="false"/>
+            </field>
+            <field
+                property="hepb2"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="Hepatis B : Date" resource="false"/>
+            </field>
+            <field
+                property="hepb3"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="Hepatis B : Date" resource="false"/>
+            </field>
+            <field
+                property="mmr1"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="MMR : Date" resource="false"/>
+            </field>
+            <field
+                property="mmr2"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="MMR : Date" resource="false"/>
+            </field>
+            <field
+                property="tn1"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="Tetanus : Date" resource="false"/>
+            </field>
+            <field
+                property="tn2"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="Tetanus : Date" resource="false"/>
+            </field>
+            <field
+                property="tn3"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="Tetanus : Date" resource="false"/>
+            </field>
+            <field
+                property="hepa1"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="Hepatis A : Date" resource="false"/>
+            </field>
+            <field
+                property="hepa2"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="Hepatis A : Date" resource="false"/>
+            </field>
+            <field
+                property="ch1"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="ChickenPox : Date" resource="false"/>
+            </field>
+            <field
+                property="ch2"
+                depends="mask">
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-3][0-9][-][0-1][0-9][-][1-2][0-9][0-9][0-9]$</var-value>
+                </var>
+                    <arg key="ChickenPox : Date" resource="false"/>
+            </field>
+        </form>
+        
+    </formset>
+
+    <!-- An example formset for another locale -->
+    <formset language="fr">
+
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^[0-9a-zA-Z]*$</constant-value>
+        </constant>
+
+        <!-- An example form -->
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+
+   </formset>
+
+</form-validation>
